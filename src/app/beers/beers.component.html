@@ -1,0 +1,60 @@
+<h2>Category : </h2>
+<form [formGroup]="beerForm"class="beers">
+<div>
+  <label>Beer name:
+    <input formControlName="name" />
+  </label>
+</div>
+<div>
+  <label>Beer ibu:
+    <input formControlName="ibu"  type="number"/>
+  </label>
+</div>
+<div>
+  <label>Beer abv:
+    <input formControlName="abv"  type="number" max="2"/>
+  </label>
+</div>
+<div>
+    <label>Beer Category:
+      <select formControlName="category">
+        <option>Please Select</option>
+        <option *ngFor="let category of categories" value={{category.url}}>
+            {{category.name}}
+        </option>
+      </select>
+    </label>
+  </div>
+<div>
+  <label>Beer style:
+    <input formControlName="style"  />
+  </label>
+</div>
+<div>
+  <label>Brewery Location:
+    <input formControlName="brewery_location"  />
+  </label>
+</div>
+<div>
+  <label>Calories:
+    <input formControlName="calories" type="number"/>
+  </label>
+</div>
+
+
+<button type="submit" (click)="add();" >
+  add
+</button>
+
+</form>
+
+<div>
+  <ul class="beers">
+    <li *ngFor="let beer of beers">
+      <a routerLink="/detail/{{beer.url.substring(beer.url.indexOf('beers')+6,beer.url.length-1)}}">
+        <span class="badge">{{beer.ibu}}</span> {{beer.name}}
+      </a>
+      <button class="delete" title="delete beer" (click)="delete(beer)">x</button>
+    </li>
+  </ul>
+</div>

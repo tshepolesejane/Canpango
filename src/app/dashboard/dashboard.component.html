@@ -1,0 +1,13 @@
+<h3>Beer Categories!</h3>
+<div>
+  <app-beer-search></app-beer-search>
+</div>
+<div class="grid grid-pad">
+  <a *ngFor="let category of categories" class="col-1-4"
+      routerLink="/beers/{{category.url.substring(category.url.indexOf('category') + 9, category.url.length)}}">
+    <div class="module hero">
+      <h4>{{category.name}}</h4>
+    </div>
+  </a>
+</div>
+

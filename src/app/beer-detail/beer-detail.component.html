@@ -1,0 +1,38 @@
+<div *ngIf="hero">
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
+
+<div *ngIf="beer">
+  <h2>{{beer.name | uppercase}} Details</h2>
+  <div><span>IBU: </span>{{beer.ibu}}</div>
+  
+  <div>
+    <label>name:
+      <input [(ngModel)]="beer.name" placeholder="name"/>
+    </label>
+  </div>
+
+  <div>
+    <label>Calories:
+      <input [(ngModel)]="beer.calories" placeholder="name"/>
+    </label>
+  </div>
+
+  <div>
+    <label>Brewery location
+      <input [(ngModel)]="beer.brewery_location" placeholder="name"/>
+    </label>
+  </div>
+  
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4>Search for a specific beer</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let beer of beers$ | async" >
+      <a routerLink="/detail/{{beer.ibu}}">
+        {{beer.name}}
+      </a>
+    </li>
+  </ul>
+</div>
